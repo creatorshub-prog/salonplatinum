@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salon Platinum | Virginia Beach, VA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --platinum: #D4D0CA;
+      --onyx: #111111;
+      --warm-white: #FAF8F5;
+      --muted: #888580;
+      --gold: #B89A6A;
+      --mid: #2A2A2A;
+      --section-gap: 100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--warm-white);
+      color: var(--onyx);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 60px;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: padding 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--onyx);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--onyx); }
+
+    .nav-cta {
+      background: var(--onyx);
+      color: var(--warm-white) !important;
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-size: 11px !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold) !important; color: var(--onyx) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--onyx);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(17,17,17,0.72) 0%, rgba(17,17,17,0.3) 100%),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 60px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--platinum);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      max-width: 420px;
+      margin-bottom: 44px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--onyx);
+      padding: 14px 34px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #a0885e; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: #fff; }
+
+    .hero-badge {
+      position: absolute;
+      right: 60px;
+      bottom: 80px;
+      z-index: 2;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 4px;
+      padding: 20px 28px;
+      text-align: center;
+    }
+
+    .hero-badge-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--onyx);
+      color: var(--platinum);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: var(--section-gap) 60px; }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .section-title em { font-style: italic; }
+
+    .section-body {
+      font-size: 14px;
+      color: #555;
+      max-width: 540px;
+      line-height: 1.9;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 180px;
+      height: 180px;
+      background: var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .stat {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 16px;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--onyx);
+      color: var(--warm-white);
+    }
+
+    #services .section-title { color: var(--warm-white); }
+    #services .section-body { color: rgba(255,255,255,0.5); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      background: #1A1A1A;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .service-card:hover { background: #222; }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      padding: var(--section-gap) 0;
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      padding: 0 60px;
+      margin-bottom: 48px;
+    }
+
+    .gallery-strip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 0 60px 20px;
+      scrollbar-width: none;
+    }
+
+    .gallery-strip::-webkit-scrollbar { display: none; }
+
+    .gallery-img {
+      flex: 0 0 320px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 2px;
+      transition: transform 0.4s;
+    }
+
+    .gallery-img:hover { transform: scale(1.02); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: #F3F0EB;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      padding: 36px 32px;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: 10px;
+      left: 28px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      padding-top: 20px;
+    }
+
+    .testimonial-author {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    /* ── HOURS / CONTACT ── */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+
+    .contact-info {
+      background: var(--onyx);
+      color: var(--warm-white);
+      padding: var(--section-gap) 60px;
+    }
+
+    .contact-info .section-eyebrow { color: var(--gold); }
+    .contact-info .section-title { color: var(--warm-white); }
+
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    .contact-detail-icon {
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .contact-detail-value {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    .contact-detail-value a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-detail-value a:hover { color: var(--gold); }
+
+    .hours-table {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 32px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hours-row .day { font-weight: 500; color: rgba(255,255,255,0.9); }
+    .hours-row .time { color: var(--gold); }
+
+    .contact-form-section {
+      background: var(--warm-white);
+      padding: var(--section-gap) 60px;
+    }
+
+    .contact-form-section .section-eyebrow { color: var(--gold); }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(0,0,0,0.13);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      background: #fff;
+      color: var(--onyx);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--onyx);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover { background: var(--gold); color: var(--onyx); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+    }
+
+    /* ── BELLAMI BADGE ── */
+    .bellami-strip {
+      background: var(--gold);
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .bellami-strip p {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--onyx);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--mid);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    footer p { font-size: 12px; }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px; }
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+      .nav-links.open {
+        display: flex;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: var(--warm-white);
+        padding: 24px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        z-index: 99;
+      }
+      .nav-links.open li { padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+      .nav-links.open a { font-size: 14px; color: var(--onyx); }
+      .hamburger { display: flex; }
+      .hero-content { padding: 0 24px; }
+      .hero-badge { display: none; }
+      .hero-title { font-size: 48px; }
+      section { padding: 64px 24px; }
+      #about { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-accent { display: none; }
+      .about-img-wrap img { height: 380px; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; }
+      .contact-info, .contact-form-section { padding: 64px 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .gallery-strip { padding: 0 24px 20px; }
+      .gallery-header { padding: 0 24px; }
+      .gallery-img { flex: 0 0 260px; height: 340px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 36px 24px; flex-direction: column; text-align: center; }
+      .bellami-strip { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Salon <span>Platinum</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:7574502978" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Virginia Beach's Premier Hair Studio</p>
+    <h1 class="hero-title">Your Hair,<br><em>Elevated.</em></h1>
+    <p class="hero-sub">Color. Blonding. Balayage. Extensions. Expert hands, luxury results — right here in Virginia Beach.</p>
+    <div class="hero-actions">
+      <a href="tel:7574502978" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <span class="hero-badge-label">Certified</span>
+    <p class="hero-badge-text">BELLAMI VIP<br>Exclusive Salon</p>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    &nbsp;&nbsp;Color &nbsp;·&nbsp; Balayage &nbsp;·&nbsp; Extensions &nbsp;·&nbsp; Blonding &nbsp;·&nbsp; Highlights &nbsp;·&nbsp; Keratin &nbsp;·&nbsp; BELLAMI VIP Salon &nbsp;·&nbsp; Virginia Beach &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color &nbsp;·&nbsp; Balayage &nbsp;·&nbsp; Extensions &nbsp;·&nbsp; Blonding &nbsp;·&nbsp; Highlights &nbsp;·&nbsp; Keratin &nbsp;·&nbsp; BELLAMI VIP Salon &nbsp;·&nbsp; Virginia Beach &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80" alt="Salon Platinum interior" />
+    <div class="about-img-accent"></div>
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About Salon Platinum</p>
+    <h2 class="section-title">Where craft meets <em>confidence.</em></h2>
+    <p class="section-body">
+      Salon Platinum is a boutique hair studio located in the heart of Virginia Beach, dedicated to delivering high-end color, extension, and styling services that are as unique as you are.
+    </p>
+    <br>
+    <p class="section-body">
+      As a <strong>BELLAMI VIP Exclusive Salon</strong> — one of a select few in the Hampton Roads area — we're certified in the most advanced hair extension methods on the market. Our stylists specialize in color transformations, from sun-kissed balayage to full blonding, and everything in between.
+    </p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Serving VB</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">BELLAMI</div>
+        <div class="stat-label">VIP Certified Salon</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Services Offered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Days a Week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BELLAMI STRIP -->
+<div class="bellami-strip">
+  <p>✦ &nbsp; Official BELLAMI VIP Exclusive Partner Salon &nbsp;·&nbsp; Virginia Beach, VA &nbsp; ✦</p>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Our <em>Services</em></h2>
+    </div>
+    <p class="section-body" style="max-width:340px;">From subtle highlights to full transformations — every service is personalized to your hair's unique needs.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <div class="service-name">Color & Blonding</div>
+      <p class="service-desc">Single-process color, full highlights, ombre, and precision blonding to achieve the exact shade you're after.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✦</span>
+      <div class="service-name">Balayage</div>
+      <p class="service-desc">Hand-painted, sun-kissed color that grows out naturally. Our signature look — low maintenance, high impact.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💎</span>
+      <div class="service-name">Hair Extensions</div>
+      <p class="service-desc">BELLAMI-certified extensions including tape-in, keratin tip, and weft methods for added length and volume.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✂️</span>
+      <div class="service-name">Women's Haircuts</div>
+      <p class="service-desc">Precision cuts tailored to your face shape, texture, and lifestyle. Includes a wash and style.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <div class="service-name">Keratin Treatment</div>
+      <p class="service-desc">Smooth out frizz and restore shine with a professional keratin treatment that lasts for months.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💫</span>
+      <div class="service-name">Highlights</div>
+      <p class="service-desc">Foil or freehand highlights to add dimension, depth, and brightness throughout your hair.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">〰️</span>
+      <div class="service-name">Perms & Straightening</div>
+      <p class="service-desc">Whether you want waves or sleek straight hair — our chemical services are done with care and precision.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌀</span>
+      <div class="service-name">Curly Hair Services</div>
+      <p class="service-desc">Specialized care for natural curls including cuts, styling, and treatments designed for curl patterns.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🪢</span>
+      <div class="service-name">Braiding & Weaves</div>
+      <p class="service-desc">Protective styles and weave installations done with skill and care to keep your hair healthy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header">
+    <p class="section-eyebrow">Our Work</p>
+    <h2 class="section-title">The <em>Results</em> Speak</h2>
+  </div>
+  <div class="gallery-strip">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=600&q=80" alt="Balayage transformation" />
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=600&q=80" alt="Hair color" />
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?w=600&q=80" alt="Extensions" />
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Salon styling" />
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Salon interior" />
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-eyebrow">Client Love</p>
+  <h2 class="section-title">What They're <em>Saying</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Absolutely love my balayage. I've been to a lot of salons in Virginia Beach and this is the only place that really listened to what I wanted and delivered perfectly. The results are stunning.</p>
+      <p class="testimonial-author">— A. Morris, Virginia Beach</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">My extensions look and feel completely natural. The stylist matched my color perfectly and I've gotten so many compliments. I won't go anywhere else for my extensions now.</p>
+      <p class="testimonial-author">— K. Reynolds, Chesapeake</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Professional, talented, and they really know color. My highlights came out exactly how I envisioned — bright and dimensional without being brassy. Highly recommend this salon.</p>
+      <p class="testimonial-author">— T. Johnson, Virginia Beach</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-info">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title" style="font-size:40px;">Get In <em>Touch</em></h2>
+
+    <div class="contact-detail">
+      <span class="contact-detail-icon">📍</span>
+      <div>
+        <p class="contact-detail-label">Address</p>
+        <p class="contact-detail-value">
+          <a href="https://maps.google.com/?q=228+N+Lynnhaven+Rd+Suite+117a+Virginia+Beach+VA+23452" target="_blank">
+            228 N Lynnhaven Rd, Suite 117a<br>Virginia Beach, VA 23452
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <span class="contact-detail-icon">📞</span>
+      <div>
+        <p class="contact-detail-label">Phone</p>
+        <p class="contact-detail-value"><a href="tel:7574502978">(757) 450-2978</a></p>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <span class="contact-detail-icon">📸</span>
+      <div>
+        <p class="contact-detail-label">Instagram</p>
+        <p class="contact-detail-value"><a href="https://instagram.com/salonplatinum757" target="_blank">@salonplatinum757</a></p>
+      </div>
+    </div>
+
+    <div class="hours-table">
+      <p class="contact-detail-label" style="margin-bottom:16px;">Hours of Operation</p>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">9:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">9:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">9:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">9:00 AM – 8:00 PM</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">9:00 AM – 7:00 PM</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 AM – 5:00 PM</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">11:00 AM – 5:00 PM</span></div>
+    </div>
+  </div>
+
+  <div class="contact-form-section">
+    <p class="section-eyebrow">Book an Appointment</p>
+    <h2 class="section-title" style="font-size:40px; margin-bottom:36px;">Request <em>a Visit</em></h2>
+
+    <div id="formWrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="(757) 000-0000" />
+      </div>
+      <div class="form-group">
+        <label>Service Interested In</label>
+        <select id="service">
+          <option value="">Select a service…</option>
+          <option>Color & Blonding</option>
+          <option>Balayage</option>
+          <option>Hair Extensions (BELLAMI)</option>
+          <option>Women's Haircut</option>
+          <option>Highlights</option>
+          <option>Keratin Treatment</option>
+          <option>Perms & Straightening</option>
+          <option>Curly Hair Services</option>
+          <option>Braiding & Weaves</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea id="message" placeholder="Tell us what you're looking for, or any questions you have…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">Send Request</button>
+      <p style="font-size:11px; color:#aaa; margin-top:14px; text-align:center;">Or call us directly: <a href="tel:7574502978" style="color:var(--gold)">(757) 450-2978</a></p>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <p>✦</p>
+      <p>Thank you! We'll be in touch shortly to confirm your appointment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Salon <span>Platinum</span></div>
+  <p>© 2025 Salon Platinum · 228 N Lynnhaven Rd, Virginia Beach, VA</p>
+  <div class="footer-social">
+    <a href="https://instagram.com/salonplatinum757" target="_blank">Instagram</a>
+    <a href="https://facebook.com/salonplatinum757" target="_blank">Facebook</a>
+    <a href="tel:7574502978">(757) 450-2978</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Close nav on link click
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Smooth nav scroll active state
+  const sections = document.querySelectorAll('section[id], div[id="contact"]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    links.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--onyx)' : '';
+    });
+  });
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    if (!fname || !phone || !service) {
+      alert('Please fill in your name, phone number, and service selection.');
+      return;
+    }
+    document.getElementById('formWrap').style.display = 'none';
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'block';
+  }
+</script>
+</body>
+</html>
